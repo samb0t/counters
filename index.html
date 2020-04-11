@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+<head>
+<title>counters</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" charset="utf8">
+<script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+</head>
+<body>	
+<h1>Counters</h1>
+<script type="text/template" class="template">
+	<div class="list-group">
+		<% _.each(listItems, function(item) { %>
+			<a class="list-group-item">
+			<h4 class="list-group-item-heading"><%- item.title %></h4>
+			<p class="list-group-item-text">Days <span class="badge alert-info pull-right"> <%- item.getDtDiff().days %></span></p>
+			<p class="list-group-item-text">Months <span class="badge alert-info pull-right"> <%- item.getDtDiff().months %></span></p>
+			<p class="list-group-item-text">Years <span class="badge alert-info pull-right"> <%- item.getDtDiff().years %></span></p>
+			</a>
+		<% }); %>
+	</div>
+</script>
+<script src="counters.js"></script>
+</body>
+</html>
