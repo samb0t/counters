@@ -20,7 +20,8 @@ var getTimeTrackers = function() {
 	return [
 		new TimeTracker("wedding", "2008-06-14"),
 		new TimeTracker("dating", "2005-04-01"),
-		new TimeTracker("leo", "2015-10-25")
+		new TimeTracker("leo", "2015-10-25"),
+        new TimeTracker("josephina", "2020-04-11")
 	];
 }
 
