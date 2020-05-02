@@ -10,20 +10,28 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 
 </head>
-<body>	
-<h1>Counters</h1>
-<script type="text/template" class="template">
-	<div class="list-group">
-		<% _.each(listItems, function(item) { %>
-			<a class="list-group-item">
-			<h4 class="list-group-item-heading"><%- item.title %></h4>
-			<p class="list-group-item-text">Days <span class="badge alert-info pull-right"> <%- item.getDtDiff().days %></span></p>
-			<p class="list-group-item-text">Months <span class="badge alert-info pull-right"> <%- item.getDtDiff().months %></span></p>
-			<p class="list-group-item-text">Years <span class="badge alert-info pull-right"> <%- item.getDtDiff().years %></span></p>
-			</a>
-		<% }); %>
-	</div>
-</script>
-<script src="counters.js"></script>
+<body>
+    <div class="container">
+        <h1 class="jumbotron-heading">Counters</h1>
+        <script type="text/template" id="dwmy">
+            <p class="list-group-item-text" style="margin-bottom:3px"> <%- title %>
+                <span class="badge alert-info pull-right"> <%- valu %></span>
+            </p>
+        </script>
+        <script type="text/template" id="template">
+            <div class="list-group">
+                <% _.each(listItems, function(item) { %>
+                    <a class="list-group-item">
+                        <h4 class="list-group-item-heading"><%- item.title %></h4>
+                        <%= dwmy({title:"Days",valu:item.getDtDiff().days}) %>
+                        <%= dwmy({title:"Weeks",valu:item.getDtDiff().weeks}) %>
+                        <%= dwmy({title:"Months",valu:item.getDtDiff().months}) %>
+                        <%= dwmy({title:"Years",valu:item.getDtDiff().years}) %>
+                    </a>
+                <% }); %>
+            </div>
+        </script>
+    </div>
+    <script src="counters.js"></script>
 </body>
 </html>
