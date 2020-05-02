@@ -14,7 +14,7 @@
     <div class="container">
         <h1 class="jumbotron-heading">Counters</h1>
         <script type="text/template" id="dwmy">
-            <p class="list-group-item-text" style="margin-bottom:3px"> <%- title %>
+            <p class="list-group-item-text" style="margin-bottom:3px"> <%-title%>
                 <span class="badge alert-info pull-right"> <%- valu %></span>
             </p>
         </script>
@@ -22,7 +22,7 @@
             <div class="list-group">
                 <% _.each(listItems, function(item) { %>
                     <a class="list-group-item">
-                        <h4 class="list-group-item-heading"><%- item.title %></h4>
+                        <h4 class="list-group-item-heading"><%- item.title %>: <%-item.dateTime.replace(/-/g,'/')%></h4>
                         <%= dwmy({title:"Days",valu:item.getDtDiff().days}) %>
                         <%= dwmy({title:"Weeks",valu:item.getDtDiff().weeks}) %>
                         <%= dwmy({title:"Months",valu:item.getDtDiff().months}) %>
